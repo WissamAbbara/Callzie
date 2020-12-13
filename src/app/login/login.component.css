@@ -1,0 +1,92 @@
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #13547a;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+button:disabled{
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.slogan{
+  text-align: center;
+  color: #b8c6db;
+
+}
+
+.error{
+  text-align: center;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 40%;
+}
+
+.container {
+  padding: 16px;
+}
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: rgb(0,0,0);
+  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  padding-top: 60px;
+  height: 100%;
+}
+
+
+.modal-content {
+  background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
+  margin: 5% auto 15% auto;
+  border: 1px solid #888;
+  border-radius: 20px;
+  min-width: 300px;
+  width: 40%;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.9);
+  border-collapse: collapse;
+  font-family: Arial;
+}
+
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)}
+  to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+  from {transform: scale(0)}
+  to {transform: scale(1)}
+}

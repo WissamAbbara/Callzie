@@ -1,0 +1,25 @@
+<div id="id01" class="modal">
+  <form class="modal-content animate" (ngSubmit)="login()" #f="ngForm">
+    <div class="imgcontainer">
+      <img src="assets/logo.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <h3 class="p-error error">{{error}}</h3>
+
+      <label for="uname"><b>Username</b></label>
+      <input pInputText type="text" [(ngModel)]="loginRequest.username" #usernameElem="ngModel"
+             [ngModelOptions]="{standalone: true}" placeholder="Thayasi" id="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input pInputText type="password" [(ngModel)]="loginRequest.password" #passElem="ngModel"
+             [ngModelOptions]="{standalone: true}" placeholder="**********" id="psw" required>
+
+      <button pButton type="submit" [disabled]="!usernameElem.valid || !passElem.valid">Login</button>
+ <label>
+      </label>
+    </div>
+
+  </form>
+</div>
+
