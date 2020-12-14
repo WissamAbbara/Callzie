@@ -4,17 +4,20 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
-import { HomeComponent } from './home/home.component';
 import {AuthInterceptorProviders} from '../shared/services/auth.interceptor';
+import { HeaderComponent } from './header/header.component';
+import {ButtonModule} from 'primeng-lts/button';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ButtonModule
   ],
   providers: [AuthInterceptorProviders],
   bootstrap: [AppComponent]

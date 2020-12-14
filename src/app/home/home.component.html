@@ -1,1 +1,10 @@
-<h1>User Logged In!</h1>
+<div class="card-con"><p-card header="Hello There," subheader="{{user.username}}" [style]="{width: '100%'}" styleClass="p-card-shadow">
+  <h2>Username: <span class="attr">{{user.username}}</span></h2>
+  <h2>Email: <span class="attr">{{user.email}}</span></h2>
+  <h2>Role: <span class="attr">{{user.role}}</span></h2>
+  <ng-template pTemplate="footer">
+    We Wish you a Lovely Day,<br>
+    From <i class="pi pi-share-alt" style="font-size: 0.7em"></i> Callzie
+  </ng-template>
+</p-card>
+</div>

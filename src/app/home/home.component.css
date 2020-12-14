@@ -1,0 +1,15 @@
+.card-con{
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+  min-width: 300px;
+  text-align: center;
+}
+.card-con p-card{
+  margin-left: auto;
+  margin-right: auto;
+}
+.attr{
+  color: #888888;
+}

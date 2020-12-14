@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
     this.subscriptions.push(
       this.authService.getUserInformation().subscribe(
         (data: User) => {
-          this.authService.saveUser(data);
+          this.user = data;
         },
         () => {
           this.authService.logout();

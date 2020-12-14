@@ -4,6 +4,8 @@ import {CommonModule} from '@angular/common';
 import {AuthService} from '../../shared/services/auth.service';
 import {HomeComponent} from './home.component';
 import {HomeRoutingModule} from './home-routing.module';
+import {CardModule} from 'primeng-lts/card';
+import {ButtonModule} from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -13,6 +15,8 @@ import {HomeRoutingModule} from './home-routing.module';
     HomeRoutingModule,
     FormsModule,
     CommonModule,
+    CardModule,
+    ButtonModule
   ],
   providers: [AuthService]
 })

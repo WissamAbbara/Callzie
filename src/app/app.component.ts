@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {Router} from '@angular/router';
+import {ROUTES} from '../shared/services/shared.constants';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Callzie';
+
+  constructor(private router: Router) {
+  }
+
+  isLogin(): boolean {
+    return this.router.url === ROUTES.LOGIN;
+  }
 }
