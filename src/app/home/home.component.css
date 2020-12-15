@@ -1,15 +1,55 @@
-.card-con{
-  width: 50%;
+.MainGrid {
+  width: 100%;
+  margin-top: 60px;
+
+}
+.p-table td,
+.p-table th {
+  text-decoration: none;
+  border: 0;
+}
+#table {
+  margin-top: 5%;
+  width: 70%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 10%;
-  min-width: 300px;
-  text-align: center;
 }
-.card-con p-card{
-  margin-left: auto;
-  margin-right: auto;
+tr{
+  border-right: 1px solid #c8c8c8;
+  border-left: 1px solid #c8c8c8;
+  border-bottom: 1px solid #c8c8c8;
 }
-.attr{
-  color: #888888;
+tr.head{
+  border-top: 1px solid #c8c8c8;
+  border-bottom: none;
+}
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+
+.searchBox{
+  width: 100%;
+  height: 30px;
+}
+.searchBox:hover{
+  border-color: #13547a;
+}
+.newButton{
+  transition-duration: 1s;
+  margin-left: 15%;
+  background-color: #13547a;
+  border: 1px solid #13547a;
+}
+.newButton:hover{
+  transition-duration: 1s;
+  background-color:transparent;
+  color: #13547a;
+  border: 1px solid #13547a;
+}
+@media only screen and (max-width: 600px) {
+  .newButton{
+    margin-left: 20%;
+  }
+  #table{
+    width: 90%;
+  }
 }

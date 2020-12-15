@@ -4,8 +4,11 @@ import {CommonModule} from '@angular/common';
 import {AuthService} from '../../shared/services/auth.service';
 import {HomeComponent} from './home.component';
 import {HomeRoutingModule} from './home-routing.module';
-import {CardModule} from 'primeng-lts/card';
 import {ButtonModule} from 'primeng/button';
+import {TableModule} from 'primeng/table';
+import {DialogService, DynamicDialogModule} from 'primeng/dynamicdialog';
+import {InputTextModule} from 'primeng/inputtext';
+import {UsersModalModule} from './users-modal/users-modal.module';
 
 @NgModule({
   declarations: [
@@ -15,9 +18,12 @@ import {ButtonModule} from 'primeng/button';
     HomeRoutingModule,
     FormsModule,
     CommonModule,
-    CardModule,
-    ButtonModule
+    ButtonModule,
+    TableModule,
+    DynamicDialogModule,
+    InputTextModule,
+    UsersModalModule
   ],
-  providers: [AuthService]
+  providers: [AuthService, DialogService]
 })
 export class HomeModule { }

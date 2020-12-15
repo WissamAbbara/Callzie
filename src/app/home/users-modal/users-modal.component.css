@@ -1,0 +1,29 @@
+input.ng-invalid.ng-touched {
+  border: 2px solid #a80000;
+}
+.error {
+  color: red;
+}
+.right{
+  float: right;
+  margin-top: 20px;
+}
+.input{
+  width: 90%;
+}
+.left{
+  margin-top: 20px;
+  float: left;
+}
+.left button.delete:hover{
+  background-color: #D32F2F;
+  color: white;
+}
+.right button.close:hover{
+  color:white;
+  background-color: #607D8B;
+}
+.right button.save:hover:enabled{
+  color:white;
+  background-color: #689F38;
+}

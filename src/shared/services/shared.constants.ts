@@ -2,7 +2,9 @@ export const API_CONST = {
   BASE_URL: 'http://localhost:54012/api/',
   ACTIONS: {
     LOGIN: 'Authenticate/login',
-    USER_INFO: 'User/getUserInfo'
+    USER_INFO: 'User/getUserInfo',
+    REGISTER: 'Authenticate/register',
+    USER: ''
   }
 };
 export const STORAGE = {

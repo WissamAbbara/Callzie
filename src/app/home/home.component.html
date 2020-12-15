@@ -1,10 +1,64 @@
-<div class="card-con"><p-card header="Hello There," subheader="{{user.username}}" [style]="{width: '100%'}" styleClass="p-card-shadow">
-  <h2>Username: <span class="attr">{{user.username}}</span></h2>
-  <h2>Email: <span class="attr">{{user.email}}</span></h2>
-  <h2>Role: <span class="attr">{{user.role}}</span></h2>
-  <ng-template pTemplate="footer">
-    We Wish you a Lovely Day,<br>
-    From <i class="pi pi-share-alt" style="font-size: 0.7em"></i> Callzie
-  </ng-template>
-</p-card>
+<div class="p-grid MainGrid ">
+  <div id="container" class=" p-grid p-col-12 p-justify-center ">
+    <div class="p-col-12 p-md-12 p-lg-12 p-grid p-justify-center Container">
+      <div class="p-col-12 p-grid p-justify-start">
+        <div class="p-col-12 p-md-12 p-lg-4 p-grid p-justify-end">
+
+          <button pButton pRipple type="button" label="New User" (click)="showModalDialog()" icon="pi pi-user-plus" class="p-button-rounded newButton"></button>
+        </div>
+      </div>
+      <div class="p-col-12 p-grid p-justify-center">
+        <div id="table" class="p-col-9">
+          <p-table class="p-table" [columns]="cols" [responsive]="true" [value]="usersList"   [rowHover]="true" #thisTable>
+
+            <ng-template pTemplate="colgroup" let-columns>
+              <colgroup>
+                <col *ngFor="let col of columns; let i=index" [ngStyle]="{'width': i==3 ? '8%' : 'auto' }">
+              </colgroup>
+            </ng-template>
+
+
+            <ng-template pTemplate="header" let-columns>
+              <tr class="head">
+                <th *ngFor="let col of columns; let i= index"  pResizableColumn>
+                  {{col.header}}
+                </th>
+              </tr>
+              <tr>
+
+                <th *ngFor="let col of columns" [ngSwitch]="col.field">
+                  <span *ngSwitchCase="'username'" class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                  <input  pInputText placeholder="Search by Name" class="searchBox" type="text" (input)="thisTable.filter($event.target.value, col.field, 'contains')">
+                  </span>
+                  <span *ngSwitchCase="'email'" class="p-input-icon-left">
+                      <i class="pi pi-search"></i>
+                    <input  placeholder="Search by Email" class="searchBox" pInputText type="text" (input)="thisTable.filter($event.target.value, col.field, 'contains')">
+                   </span>
+                    <span *ngSwitchCase="'role'" class="p-input-icon-left">
+                        <i class="pi pi-search"></i>
+                    <input  placeholder="Search by Role" class="searchBox" pInputText type="text" (input)="thisTable.filter($event.target.value, col.field, 'contains')">
+                  </span>
+                </th>
+
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-usersList let-columns="columns">
+              <tr class="ui-selectable-row" style="cursor: auto;">
+                <td *ngFor="let col of columns; let i =index" class="ui-resizable-column">
+                  <span *ngIf="i!=3">{{usersList[col.field]}}</span>
+                  <span>
+                       <div style="text-align: center;">
+                        <button *ngIf="i==3" (click)="showModalDialog(usersList)" pButton pRipple style="color:#13547a;"
+                                type="button" icon="pi pi-user-edit" class="p-button-rounded p-button-info p-button-text"></button>
+                       </div>
+                   </span>
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

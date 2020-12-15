@@ -12,7 +12,7 @@ import {AuthService} from '../../shared/services/auth.service';
   imports: [
     LoginRoutingModule,
     FormsModule,
-    CommonModule,
+    CommonModule
   ],
   providers: [AuthService]
 })

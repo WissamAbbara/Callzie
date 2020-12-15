@@ -42,12 +42,15 @@ body {
   float: right;
 }
 .logout .logoutbutton{
+  transition-duration: 1s;
   background-color: #13547a;
+  border: 1px solid #13547a;
 }
 
 .logout .logoutbutton:hover{
+  transition-duration: 1s;
   background-color: transparent;
-  color: #2196F3;
+  color: #13547a;
 }
 
 @media screen and (max-width: 500px) {

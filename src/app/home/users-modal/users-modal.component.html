@@ -1,0 +1,41 @@
+<p-messages closable [(value)]="msgs"></p-messages>
+<form #f="ngForm">
+  <div class="p-field p-grid">
+    <label for="uname" class="p-col-12 p-md-3">User Name</label>
+    <div class="p-col-12 p-md-9">
+      <input class="input" id="uname" name="username" minlength="5" type="text" #unameRef="ngModel" [(ngModel)]='user.username' required pInputText>
+      <span *ngIf="!unameRef.valid && unameRef.touched && unameRef.hasError('required')"
+            class="ui-message-error error">*Required</span>
+      <span *ngIf="!unameRef.valid && unameRef.touched && unameRef.hasError('minlength')"
+            class="ui-message-error error"><br>*Must be at least 5 Characters</span>
+    </div>
+  </div>
+  <div class="p-field p-grid">
+    <label for="email" class="p-col-12 p-md-3">Email</label>
+    <div class="p-col-12 p-md-9">
+      <input class="input" id="email" name="email" type="email" #emailRef="ngModel" [(ngModel)]='user.email' email required pInputText>
+      <span *ngIf="!emailRef.valid && emailRef.touched && emailRef.hasError('email')"
+            class="ui-message-error error">*Inavlid Email<br></span>
+      <span *ngIf="!emailRef.valid && emailRef.touched && emailRef.hasError('required')"
+            class="ui-message-error error">*Required</span>
+    </div>
+  </div>
+  <div class="p-field p-grid">
+    <label class="p-col-12 p-md-3">Role</label>
+    <div class="p-col-12 p-md-9">
+      <p-dropdown [style]="{'width':'90%'}" class="input" name="role" placeholder="Select a Role" #roleRef="ngModel"
+                  [options]="roles" [(ngModel)]="selectedRole" required optionLabel="name"></p-dropdown>
+      <span *ngIf="!roleRef.valid && roleRef.touched && roleRef.hasError('required')"
+            class="ui-message-error error">*Required</span>
+    </div>
+  </div>
+</form>
+<div *ngIf="editMode" class="left">
+  <button pButton pRipple type="button" label="Delete User" class="p-button-outlined p-button-danger delete"></button>
+</div>
+<div class="right">
+  <button pButton pRipple type="button" label="Close" (click)="closeDialog()" class="p-button-outlined p-button-secondary close"></button> &nbsp;
+  <button pButton pRipple type="button" [disabled]="!unameRef.valid || !emailRef.valid || !roleRef.valid" label="Save"
+          class="p-button-outlined p-button-success save" (click)="createNewUser()"></button>
+</div>
+
