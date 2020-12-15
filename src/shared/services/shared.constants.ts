@@ -1,5 +1,5 @@
 export const API_CONST = {
-  BASE_URL: 'http://localhost:54012/api/',
+  BASE_URL: 'https://crm20201214004646-apim.azure-api.net/api/',
   ACTIONS: {
     LOGIN: 'Authenticate/login',
     USER_INFO: 'User/getUserInfo',
