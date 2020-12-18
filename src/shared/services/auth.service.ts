@@ -25,7 +25,7 @@ export class AuthService {
     localStorage.setItem(STORAGE.USER, JSON.stringify(user));
     this.userSubject.next(user);
   }
-  getUserInformation() {
+  getUserInformation(): any {
     return this.http.get(API_CONST.ACTIONS.USER_INFO);
   }
 
@@ -48,6 +48,10 @@ export class AuthService {
   }
   getToken(): string {
     return this.token;
+  }
+
+  getUsers(): any{
+    return this.http.get(API_CONST.ACTIONS.ALL_USERS);
   }
 
   logout(): void {

@@ -5,7 +5,6 @@ import {API_CONST} from './shared.constants';
   providedIn: 'root'
 })
 export class HttpService {
-  public API_CONST = "http://localhost:54012/"
 
   constructor(private httpClient: HttpClient) {
   }
@@ -18,10 +17,10 @@ export class HttpService {
     return this.httpClient.post(`${API_CONST.BASE_URL}${action}`, data);
   }
 
-  public put(action: string, data: any) {
+  public put(action: string, data: any): any {
     return this.httpClient.put(`${API_CONST.BASE_URL}${action}`, data);
   }
-  public delete(action: string) {
+  public delete(action: string): any {
     return this.httpClient.delete(`${API_CONST.BASE_URL}${action}`);
   }
 }

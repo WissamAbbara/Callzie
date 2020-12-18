@@ -4,7 +4,7 @@ import {Subscription} from 'rxjs';
 import {Message} from 'primeng/api';
 import {HttpService} from '../../../shared/services/http.service';
 import {AuthService} from '../../../shared/services/auth.service';
-import {DynamicDialogConfig, DynamicDialogRef} from 'primeng-lts/dynamicdialog';
+import {DynamicDialogConfig} from 'primeng-lts/dynamicdialog';
 import {API_CONST} from '../../../shared/services/shared.constants';
 
 @Component({
@@ -21,13 +21,12 @@ export class UsersModalComponent implements OnInit, OnDestroy {
   editMode: boolean;
 
   constructor(private httpService: HttpService, private authService: AuthService,
-              private dynamicDialogConfig: DynamicDialogConfig,
-              private dynamicDialogRef: DynamicDialogRef) {
+              private dynamicDialogConfig: DynamicDialogConfig) {
   }
 
   ngOnInit(): void {
     this.editMode = false;
-    this.user = new User('', '', '', 0, '');
+    this.user = new User('', '', '', 0, 'Test@123');
     this.getRoles();
     if (!!this.dynamicDialogConfig.data) {
       this.editMode = true;
@@ -54,7 +53,7 @@ export class UsersModalComponent implements OnInit, OnDestroy {
       this.subscriptions.push(
         this.httpService.post(API_CONST.ACTIONS.REGISTER, this.user).subscribe(
           () => {
-            this.dynamicDialogRef.close();
+            this.closeDialog();
           },
           () => {
             this.showErrorMessage();
@@ -63,7 +62,7 @@ export class UsersModalComponent implements OnInit, OnDestroy {
       this.subscriptions.push(
         this.httpService.put(API_CONST.ACTIONS.USER, this.user).subscribe(
           () => {
-            this.dynamicDialogRef.close();
+            this.closeDialog();
           },
           () => {
             this.showErrorMessage();
@@ -72,7 +71,7 @@ export class UsersModalComponent implements OnInit, OnDestroy {
   }
 
   closeDialog(): void {
-    this.dynamicDialogRef.close();
+    window.location.reload();
   }
 
   showErrorMessage(): void {

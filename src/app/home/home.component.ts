@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   config = {
     header: '',
     contentStyle: {overflow: 'visible', 'min-width': '250px'}, closable: false,
-    style: {'min-width': '300px', width: '37%'}, baseZIndex: 10000, data: this.user
+    style: {'min-width': '300px', width: '37%'}, baseZIndex: 10000, data: this.user, onclose: this.getUsers()
   };
 
   constructor(private authService: AuthService, private dialogServie: DialogService) { }
@@ -28,12 +28,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.user = this.authService.getUser();
     this.checkUser();
-    this.usersList = [
-      new User('Wissam', 'Callzie', 'Admin'),
-      new User('Wissam', 'Callzie', 'Admin'),
-      new User('Wissam', 'Callzie', 'Admin'),
-      new User('Wissam', 'Callzie', 'Admin')
-    ];
+    this.getUsers();
     this.cols = [
       {field: 'username', header: 'Name'},
       {field: 'email', header: 'Email'},
@@ -42,10 +37,24 @@ export class HomeComponent implements OnInit, OnDestroy {
     ];
   }
 
+  getUsers(): void{
+    this.subscriptions.push(
+      this.authService.getUsers().subscribe(
+        (data: User[]) => {
+          this.usersList = data;
+        },
+        () => {
+          this.authService.logout();
+        }));
+  }
+
   checkUser(): void{
     this.subscriptions.push(
       this.authService.getUserInformation().subscribe(
-        () => {
+        (data: User) => {
+          if (this.user.id !== data.id){
+            this.authService.logout();
+          }
         },
         () => {
           this.authService.logout();
