@@ -52,6 +52,15 @@ body {
   background-color: transparent;
   color: #13547a;
 }
+.header .user-in{
+  text-align: center;
+  font-size: 16px;
+  padding-bottom: 0;
+  padding-top: 0;
+  vertical-align: bottom;
+  margin-top: 25px;
+}
+
 
 @media screen and (max-width: 500px) {
   .header a {
@@ -70,5 +79,8 @@ body {
     float: none;
     text-align: center;
   }
-}
 
+  .header .user-in{
+    margin-top: 0;
+  }
+}

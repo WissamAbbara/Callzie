@@ -17,13 +17,16 @@ input.ng-invalid.ng-touched {
 }
 .left button.delete:hover{
   background-color: #D32F2F;
+  transition-duration: 1s;
   color: white;
 }
 .right button.close:hover{
+  transition-duration: 1s;
   color:white;
   background-color: #607D8B;
 }
 .right button.save:hover:enabled{
+  transition-duration: 1s;
   color:white;
   background-color: #689F38;
 }
