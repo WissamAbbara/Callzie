@@ -12,8 +12,9 @@ import {DialogService} from 'primeng/dynamicdialog';
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
-  roles: {name: string}[];
+  roles: {label: string, value: string}[];
   usersList: User[];
+  search: '';
   cols: any[];
   user: User = new User('', '', '', 0);
   subscriptions: Subscription[] = [];
@@ -35,6 +36,13 @@ export class HomeComponent implements OnInit, OnDestroy {
       {field: 'role', header: 'Role'},
       {field: 'edit', header: ''}
     ];
+    this.roles = [
+      {label: 'Admin', value: 'Admin'},
+      {label: 'Operation', value: 'Operation'},
+      {label: 'Quality', value: 'Quality'},
+      {label: 'Inbound', value: 'Inbound'},
+      {label: 'Outbound', value: 'Outbound'}
+    ];
   }
 
   getUsers(): void{
@@ -42,6 +50,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.authService.getUsers().subscribe(
         (data: User[]) => {
           this.usersList = data;
+          this.usersList = this.usersList.filter((el) => el.username !== this.user.username);
         },
         () => {
           this.authService.logout();

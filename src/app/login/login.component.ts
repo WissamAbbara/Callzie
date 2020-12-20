@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Login} from '../../shared/models/login.model';
 import {Subscription} from 'rxjs';
 import {AuthService} from '../../shared/services/auth.service';
@@ -9,7 +9,7 @@ import {User} from '../../shared/models/user.model';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
 
   constructor(private authService: AuthService) { }
   loginRequest: Login = new Login('', '');
@@ -25,7 +25,6 @@ export class LoginComponent implements OnInit {
         data => {
           this.authService.storeToken(data.token);
           this.getUserInformation();
-          this.authService.route();
         },
         () => {
           this.showError();
@@ -35,13 +34,17 @@ export class LoginComponent implements OnInit {
     this.subscriptions.push(
       this.authService.getUserInformation().subscribe(
         (data: User) => {
-          console.log(data);
           this.authService.saveUser(data);
+          this.authService.route();
         }));
   }
   showError(): void {
     this.error = '';
     this.error = 'This Username, or Password is Incorrect!';
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(s => s.unsubscribe());
   }
 
 }

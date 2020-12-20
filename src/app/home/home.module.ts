@@ -9,6 +9,7 @@ import {TableModule} from 'primeng/table';
 import {DialogService, DynamicDialogModule} from 'primeng/dynamicdialog';
 import {InputTextModule} from 'primeng/inputtext';
 import {UsersModalModule} from './users-modal/users-modal.module';
+import {DropdownModule} from 'primeng-lts/dropdown';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {UsersModalModule} from './users-modal/users-modal.module';
     TableModule,
     DynamicDialogModule,
     InputTextModule,
-    UsersModalModule
+    UsersModalModule,
+    DropdownModule
   ],
   providers: [AuthService, DialogService]
 })

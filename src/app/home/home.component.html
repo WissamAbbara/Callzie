@@ -37,7 +37,8 @@
                    </span>
                     <span *ngSwitchCase="'role'" class="p-input-icon-left">
                         <i class="pi pi-search"></i>
-                    <input  placeholder="Search by Role" class="searchBox" pInputText type="text" (input)="thisTable.filter($event.target.value, col.field, 'contains')">
+<p-dropdown [options]="roles" [(ngModel)]="search" placeholder="Select a Role" [showClear]="true"
+            (onChange)="thisTable.filter(search, col.field, 'contains')"></p-dropdown>
                   </span>
                 </th>
 

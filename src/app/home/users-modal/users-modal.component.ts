@@ -26,7 +26,7 @@ export class UsersModalComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.editMode = false;
-    this.user = new User('', '', '', 0, 'Test@123');
+    this.user = new User('', '', '', 0, 'Callzie@123');
     this.getRoles();
     if (!!this.dynamicDialogConfig.data) {
       this.editMode = true;
@@ -60,7 +60,7 @@ export class UsersModalComponent implements OnInit, OnDestroy {
           }));
     } else {
       this.subscriptions.push(
-        this.httpService.put(API_CONST.ACTIONS.USER, this.user).subscribe(
+        this.httpService.put(API_CONST.ACTIONS.USER + this.user.id, this.user).subscribe(
           () => {
             this.closeDialog();
           },
@@ -70,6 +70,20 @@ export class UsersModalComponent implements OnInit, OnDestroy {
     }
   }
 
+  deleteUser(): void {
+    this.showErrorMessage();
+    this.msgs = [];
+    this.subscriptions.push(
+        this.httpService.delete(API_CONST.ACTIONS.DELETE + this.user.id).subscribe(
+          () => {
+            this.closeDialog();
+          },
+          () => {
+            this.showErrorMessage();
+          }));
+
+  }
+
   closeDialog(): void {
     window.location.reload();
   }
@@ -77,6 +91,11 @@ export class UsersModalComponent implements OnInit, OnDestroy {
   showErrorMessage(): void {
     this.msgs = [];
     this.msgs.push({severity: 'warn', summary: 'Error: ', detail: 'This Username or Email is Used!'});
+  }
+
+  showErrorDelete(): void {
+    this.msgs = [];
+    this.msgs.push({severity: 'warn', summary: 'Error: ', detail: 'Error Occurred!'});
   }
 
   ngOnDestroy(): void {

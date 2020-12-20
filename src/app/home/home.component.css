@@ -25,10 +25,13 @@ tr.head{
 }
 tr:nth-child(even) {background-color: #f2f2f2;}
 
+:host ::ng-deep .p-dropdown {
+  width: 100%;
+}
 
 .searchBox{
   width: 100%;
-  height: 30px;
+  height: 40px;
 }
 .searchBox:hover{
   border-color: #13547a;
@@ -53,3 +56,4 @@ tr:nth-child(even) {background-color: #f2f2f2;}
     width: 90%;
   }
 }
+

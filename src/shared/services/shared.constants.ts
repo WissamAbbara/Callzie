@@ -6,7 +6,8 @@ export const API_CONST = {
     USER_INFO: 'User/getUserInfo',
     REGISTER: 'Authenticate/register',
     ALL_USERS: 'User/getAllUsers',
-    USER: ''
+    USER: 'User/editUser/',
+    DELETE: 'User/deleteUser/'
   }
 };
 export const STORAGE = {

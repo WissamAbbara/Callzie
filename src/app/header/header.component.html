@@ -1,6 +1,6 @@
 <div class="header">
   <a routerLink="/" class="logo">Callzie</a> &nbsp;&nbsp;
-  <a class="user-in">Logged in as: {{authService.getUser().username}} ({{authService.getUser().role}})</a>
+  <a class="user-in">Logged in as: {{user.username}} ({{user.role}})</a>
   <div class="header-right">
     <div class="logout">
     <button pButton pRipple (click)="logout()" type="button" label="Log Out" class="p-button-rounded logoutbutton"></button>

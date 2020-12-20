@@ -31,7 +31,7 @@
   </div>
 </form>
 <div *ngIf="editMode" class="left">
-  <button pButton pRipple type="button" label="Delete User" class="p-button-outlined p-button-danger delete"></button>
+  <button pButton (click)="deleteUser()" pRipple type="button" label="Delete User" class="p-button-outlined p-button-danger delete"></button>
 </div>
 <div class="right">
   <button pButton pRipple type="button" label="Close" (click)="closeDialog()" class="p-button-outlined p-button-secondary close"></button> &nbsp;
