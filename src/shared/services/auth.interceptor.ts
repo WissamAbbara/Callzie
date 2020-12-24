@@ -6,12 +6,14 @@ import {STORAGE} from './shared.constants';
 
 const TOKEN_HEADER_KEY = 'Authorization';
 
+// This Class is used to Intercept all HTTP requests sent.
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   constructor() {
   }
 
-  intercept(req: HttpRequest<any>, next: HttpHandler) {
+
+  intercept(req: HttpRequest<any>, next: HttpHandler): any {
     let authReq = req;
     const token = localStorage.getItem(STORAGE.TOKEN);
     if (!!token) {

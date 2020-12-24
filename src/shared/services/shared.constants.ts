@@ -1,5 +1,7 @@
+// This file is a shared file between all component,
+// this File hold the constants used widely.
+// this file will make future changes easy (only from here).
 export const API_CONST = {
-  // BASE_URL: 'https://crm20201214004646-apim.azure-api.net/api/',
   BASE_URL: 'http://localhost:54012/api/',
   ACTIONS: {
     LOGIN: 'Authenticate/login',

@@ -41,9 +41,12 @@
             (onChange)="thisTable.filter(search, col.field, 'contains')"></p-dropdown>
                   </span>
                 </th>
-
+              </tr>
+              <tr *ngIf="usersList.length === 0">
+                <td colspan="4" style="text-align: center">No Users Found, Add New Users.</td>
               </tr>
             </ng-template>
+
             <ng-template pTemplate="body" let-usersList let-columns="columns">
               <tr class="ui-selectable-row" style="cursor: auto;">
                 <td *ngFor="let col of columns; let i =index" class="ui-resizable-column">

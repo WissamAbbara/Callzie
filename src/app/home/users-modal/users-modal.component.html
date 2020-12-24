@@ -23,7 +23,7 @@
   <div class="p-field p-grid">
     <label class="p-col-12 p-md-3">Role</label>
     <div class="p-col-12 p-md-9">
-      <p-dropdown [style]="{'width':'90%'}" class="input" name="role" placeholder="Select a Role" #roleRef="ngModel"
+      <p-dropdown id="role" [style]="{'width':'90%'}" class="input" name="role" placeholder="Select a Role" #roleRef="ngModel"
                   [options]="roles" [(ngModel)]="selectedRole" required optionLabel="name"></p-dropdown>
       <span *ngIf="!roleRef.valid && roleRef.touched && roleRef.hasError('required')"
             class="ui-message-error error">*Required</span>
